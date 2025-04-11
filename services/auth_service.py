@@ -1,10 +1,8 @@
 from typing import Optional, Dict, Any
 from fastapi import Depends, HTTPException, status
-from sqlalchemy.orm import Session
 import hashlib
 
-from models.base import get_db
-from operations.user_repository import UserRepository
+from operations.user_repository import UserRepository, get_user_repository
 
 class AuthService:
     def __init__(self, user_repository: UserRepository):
@@ -60,6 +58,5 @@ class AuthService:
             "is_active": user.is_active
         }
 
-def get_auth_service(db: Session = Depends(get_db)) -> AuthService:
-    user_repository = UserRepository(db)
+def get_auth_service(user_repository: UserRepository = Depends(get_user_repository)) -> AuthService:
     return AuthService(user_repository)

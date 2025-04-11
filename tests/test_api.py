@@ -4,8 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from models.base import Base, get_db
-from models.user_model import User
+from models.base import Base
+from operations.db_operations import create_session
 from main import app
 
 # Set up in-memory SQLite for testing
@@ -25,7 +25,7 @@ def override_get_db():
     finally:
         db.close()
 
-app.dependency_overrides[get_db] = override_get_db
+app.dependency_overrides[create_session] = override_get_db
 
 client = TestClient(app)
 

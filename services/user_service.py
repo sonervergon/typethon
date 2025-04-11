@@ -1,10 +1,7 @@
-from typing import List, Optional, Dict, Any
+from typing import Dict, Any
 from fastapi import Depends, HTTPException, status
-from sqlalchemy.orm import Session
 
-from models.base import get_db
-from models.user_model import User
-from operations.user_repository import UserRepository
+from operations.user_repository import UserRepository, get_user_repository
 
 class UserService:
     def __init__(self, user_repository: UserRepository):
@@ -53,6 +50,5 @@ class UserService:
             "is_active": user.is_active
         }
 
-def get_user_service(db: Session = Depends(get_db)) -> UserService:
-    user_repository = UserRepository(db)
+def get_user_service(user_repository: UserRepository = Depends(get_user_repository)) -> UserService:
     return UserService(user_repository)
