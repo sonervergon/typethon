@@ -4,8 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-from models.base import Base
-from operations.db_operations import create_session
+from lib.database import Base, create_session
 from main import app
 
 # Set up in-memory SQLite for testing

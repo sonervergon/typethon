@@ -8,3 +8,8 @@ mypy==1.6.1
 flake8==6.1.0
 httpx==0.25.1  # For TestClient
 email-validator==2.1.0
+redis==5.0.0  # For Redis cache
+jinja2==3.1.2  # For email templates
+python-multipart==0.0.6  # For file uploads
+pillow==10.0.1  # For image processing
+pyjwt==2.8.0  # For JWT token handling

@@ -2,7 +2,7 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from models.user_model import User
-from operations.db_operations import get_db_session, create_session
+from lib.database import create_session
 
 class UserRepository:
     def __init__(self, db: Session = None):
