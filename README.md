@@ -65,11 +65,23 @@ pip install -e .
 
 ### Testing
 
-Run tests with pytest:
+Run the test suite with pytest:
 
 ```bash
-pytest
+# Run all tests
+python -m pytest
+
+# Run tests with verbose output
+python -m pytest -v
+
+# Run a specific test file
+python -m pytest tests/test_api.py
+
+# Run a specific test function
+python -m pytest tests/test_api.py::test_create_user
 ```
+
+The project uses pytest with an in-memory SQLite database for testing. Tests are isolated and don't affect any production data.
 
 ## Docker
 
