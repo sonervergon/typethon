@@ -15,7 +15,7 @@ A Python backend service using a layered architecture with FastAPI.
 
 ## Overview
 
-This project demonstrates a clean, layered architecture for building backend services using FastAPI, SQLAlchemy, and other modern Python libraries. It includes authentication, database operations, caching, and file storage utilities.
+This boilerplate provides a foundation for building backend services using FastAPI, SQLAlchemy, and other Python libraries. With a clean, layered architecture baked in, you can focus on implementing your business logic rather than setting up infrastructure.
 
 ## Architecture
 
