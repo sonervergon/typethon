@@ -177,10 +177,15 @@ class User(Base):
 
 1. Clone the repository
 2. Create a virtual environment:
+
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
+
+   > **Note**: On macOS and some Linux systems, you may need to use `python3` instead of `python`
+   > for commands. If you see errors like `command not found: python`, replace `python` with `python3`.
+
 3. Install dependencies in development mode:
    ```bash
    pip install -e .
@@ -188,8 +193,51 @@ class User(Base):
 4. Create a `.env` file with appropriate settings (or use the existing one)
 5. Run the application:
    ```bash
-   python main.py
+   python3 main.py
    ```
+
+### Python Version Management with pyenv
+
+This project requires Python 3.9+. We recommend using pyenv to manage Python versions:
+
+1. Install pyenv (macOS):
+
+   ```bash
+   brew install pyenv
+   ```
+
+2. Install Python 3.9:
+
+   ```bash
+   pyenv install 3.9.18  # Latest in 3.9.x series as of now
+   ```
+
+3. Set Python version for this project:
+
+   ```bash
+   # Set locally in the project directory
+   cd /path/to/project
+   pyenv local 3.9.18
+
+   # Or set globally
+   pyenv global 3.9.18
+   ```
+
+4. Verify installation:
+
+   ```bash
+   python --version  # Should output Python 3.9.18
+   ```
+
+5. Add pyenv to your shell (add to ~/.zshrc, ~/.bashrc, or ~/.bash_profile):
+
+   ```bash
+   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+   echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+   echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+   ```
+
+6. After setting up pyenv, proceed with the virtual environment setup as described above.
 
 ### Adding New Features
 
@@ -315,7 +363,7 @@ def test_db():
 Run tests with pytest:
 
 ```bash
-pytest
+python3 -m pytest
 ```
 
 ### Types of Tests

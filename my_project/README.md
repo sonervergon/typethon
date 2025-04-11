@@ -35,6 +35,26 @@ python main.py
 
 The API will be available at http://localhost:8000
 
+### Python Version Management (Optional)
+
+If you need to install or manage multiple Python versions, we recommend using pyenv:
+
+```bash
+# Install pyenv (macOS)
+brew install pyenv
+
+# Install Python 3.9
+pyenv install 3.9.18
+
+# Set as your active Python version
+pyenv global 3.9.18
+
+# Verify the installation
+python --version
+```
+
+For more detailed instructions, see the DEVELOPMENT.md file.
+
 ### Development Setup
 
 For development, you can install the package in development mode:
