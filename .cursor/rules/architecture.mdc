@@ -1,0 +1,160 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor Rules for AI-Driven Backend Service
+
+This document outlines the rules and guidelines for maintaining code quality and architectural integrity in this project.
+
+## Code Organization Rules
+
+1. **Layered Architecture Adherence**
+
+   - Keep code within its appropriate layer:
+     - `api/` – HTTP interfaces only
+     - `services/` – Business logic only
+     - `operations/` – Data access only
+     - `models/` – Data models only
+     - `lib/` – Infrastructure components only
+
+2. **Domain Separation**
+
+   - Organize code by domain within each layer (`auth`, `user`, etc.)
+   - File naming should reflect both domain and purpose (e.g., `auth_service.py`)
+
+3. **Import Order**
+
+   ```python
+   # 1. Standard library imports
+   import os
+   from typing import Optional, List
+
+   # 2. Third-party imports
+   from fastapi import Depends, HTTPException
+   from sqlalchemy.orm import Session
+
+   # 3. Internal imports - by layer, alphabetical
+   from api.schemas import UserResponse
+   from lib.database import get_db_session
+   from models.user import User
+   from operations.user import UserRepository
+   ```
+
+## Coding Style Rules
+
+1. **Type Annotations**
+
+   - All function parameters and return values must have type hints
+   - Complex types should use `typing` module (List, Dict, Optional, etc.)
+
+2. **Function Structure**
+
+   - Single responsibility principle for all functions
+   - Document complex functions with docstrings
+
+3. **Error Handling**
+   - API layer: Return proper HTTP exceptions
+   - Service layer: Business-specific exceptions
+   - Operations layer: Database-specific errors
+   - Use try/except blocks at appropriate layer boundaries
+
+## Layer-Specific Rules
+
+1. **API Layer**
+
+   - Routes should be minimal and delegate to services
+   - All endpoint parameters should be validated with Pydantic
+   - Response models must be defined for all endpoints
+   - Authentication/authorization handled via FastAPI dependencies
+
+2. **Service Layer**
+
+   - No direct database access; use repositories
+   - Implement domain-specific business rules
+   - Transaction boundaries should be defined here
+   - Return domain objects, not ORM models
+
+3. **Operations Layer**
+
+   - Implement repository pattern
+   - Methods should focus on CRUD operations
+   - No business logic
+   - Handle query optimization
+
+4. **Models Layer**
+
+   - ORM models should be minimal and reflect database schema
+   - Avoid business logic in models
+   - Use appropriate SQLAlchemy types and constraints
+
+5. **Infrastructure/Lib Layer**
+   - Components should be stateless where possible
+   - Use dependency injection pattern
+   - Implement singleton pattern for expensive resources
+   - Provide clear interfaces
+
+## Dependency Injection Rules
+
+1. **Dependency Chain**
+
+   - Follow dependency direction: API → Service → Operations → Models
+   - Never reference a higher layer from a lower layer
+
+2. **Dependency Functions**
+   - Name dependency functions as `get_*`
+   - Implement proper error handling
+   - Follow FastAPI's dependency pattern
+
+## Testing Rules
+
+1. **Test Coverage**
+
+   - Minimum 80% code coverage
+   - Unit tests for all service functions
+   - Integration tests for API endpoints
+
+2. **Test Structure**
+   - Use fixtures for test setup
+   - Use mocks for external dependencies
+   - Test both success and error paths
+
+## Documentation Rules
+
+1. **Code Documentation**
+
+   - Every module should have a module-level docstring
+   - Complex functions require docstrings
+   - Public functions must have parameter and return documentation
+
+2. **API Documentation**
+   - All endpoints must have descriptions
+   - Use FastAPI's response_model attribute
+   - Include example requests/responses
+
+## Security Rules
+
+1. **Input Validation**
+
+   - All user inputs must be validated with Pydantic schemas
+   - Implement additional validation for security-sensitive fields
+
+2. **Authentication**
+
+   - All non-public endpoints must require authentication
+   - JWT token validation required for authenticated endpoints
+
+3. **Error Messages**
+   - No sensitive data in error messages
+   - Consistent error format across API
+
+## Performance Rules
+
+1. **Database Access**
+
+   - Use query optimization techniques
+   - Implement caching for frequently accessed data
+   - Set appropriate indexes on frequently queried columns
+
+2. **Async Operations**
+   - Use async endpoints for I/O-bound operations
