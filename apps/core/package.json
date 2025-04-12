@@ -6,7 +6,8 @@
   "scripts": {
     "start": "./venv/bin/python main.py",
     "test": "./venv/bin/pytest",
-    "dev": "./run-dev.sh"
+    "dev": "./run-dev.sh",
+    "setup": "./bin/setup.sh"
   },
   "keywords": [
     "python",

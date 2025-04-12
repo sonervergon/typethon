@@ -4,7 +4,7 @@
   "description": "PNPM Monorepo containing Python API and related services",
   "private": true,
   "scripts": {
-    "init-python": "./init-python-envs.sh",
+    "setup-env": "turbo setup",
     "dev": "turbo dev",
     "test": "turbo test"
   },

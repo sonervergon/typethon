@@ -23,6 +23,7 @@ ENV/
 # Testing
 .coverage
 htmlcov/
+.pytest_cache/
 
 # IDE
 .idea/

@@ -8,6 +8,7 @@ A pnpm monorepo with Turborepo containing a Python backend service and a Vite we
 api-monorepo/
 ├── apps/                 # Application packages
 │   ├── core/             # Core Python API service
+│   │   └── bin/          # Core-specific scripts
 │   └── web/              # Vite web application
 ├── packages/             # Shared packages (libraries, components, etc.)
 ├── package.json          # Root package configuration
@@ -34,8 +35,10 @@ pnpm install
 2. Set up Python environments:
 
 ```bash
-pnpm init-python
+pnpm setup-env
 ```
+
+This will run the setup scripts for all Python services in parallel using Turborepo.
 
 ### Development
 
@@ -60,7 +63,7 @@ A modern Vite-powered web application that connects to the Core API.
 ## Monorepo Scripts
 
 - `pnpm dev` - Run all services in development mode using Turborepo
-- `pnpm init-python` - Initialize Python environments
+- `pnpm setup-env` - Initialize Python environments for all services in parallel
 - `pnpm build` - Build all packages using Turborepo
 - `pnpm lint` - Lint all packages using Turborepo
 
