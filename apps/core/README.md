@@ -74,20 +74,7 @@ Each layer has a specific responsibility:
 From the monorepo root:
 
 ```bash
-# Install dependencies using the monorepo script
-pnpm init-python
-```
-
-Or manually:
-
-```bash
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-pip install -e .
+pnpm setup-env
 ```
 
 ### Running the Service
@@ -95,15 +82,13 @@ pip install -e .
 From the monorepo root:
 
 ```bash
-pnpm --filter @api-monorepo/core dev
+pnpm --filter @typethon/core dev
 ```
 
 Or from this directory:
 
 ```bash
-python main.py
-# or
-uvicorn main:app --reload
+pnpm dev
 ```
 
 The API will be available at http://localhost:8000
@@ -233,7 +218,7 @@ Run the test suite with pytest:
 
 ```bash
 # From monorepo root
-pnpm --filter @api-monorepo/core test
+pnpm --filter @typethon/core test
 
 # Or directly
 python -m pytest

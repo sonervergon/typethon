@@ -8,7 +8,6 @@ echo "Setting up Core API environment..."
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-pip install -e .
 deactivate
 
 echo "Core API environment has been set up successfully!"

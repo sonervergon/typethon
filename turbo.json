@@ -14,7 +14,7 @@
     "test": {
       "dependsOn": ["^test"]
     },
-    "setup": {
+    "setup-env": {
       "cache": false
     }
   }

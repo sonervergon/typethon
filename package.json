@@ -1,10 +1,10 @@
 {
-  "name": "api-monorepo",
+  "name": "typethon",
   "version": "1.0.0",
-  "description": "PNPM Monorepo containing Python API and related services",
+  "description": "A Typescript PNPM Monorepo containing Python API and related services",
   "private": true,
   "scripts": {
-    "setup-env": "turbo setup",
+    "setup-env": "turbo setup-env",
     "dev": "turbo dev",
     "test": "turbo test"
   },

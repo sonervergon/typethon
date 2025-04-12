@@ -1,12 +1,12 @@
 {
-  "name": "@api-monorepo/core",
+  "name": "@typethon/core",
   "version": "1.0.0",
   "description": "Python API Core Service",
   "private": true,
   "scripts": {
     "test": "./bin/test.sh",
     "dev": "./bin/dev.sh",
-    "setup": "./bin/setup.sh"
+    "setup-env": "./bin/setup.sh"
   },
   "keywords": [
     "python",
