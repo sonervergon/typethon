@@ -107,6 +107,11 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** HelloResponse */
+        HelloResponse: {
+            /** Message */
+            message: string;
+        };
         /** LoginRequest */
         LoginRequest: {
             /** Username */
@@ -281,7 +286,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["HelloResponse"];
                 };
             };
         };

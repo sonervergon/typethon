@@ -6,8 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-
 import type { Route } from "./+types/root";
+import { ApiProvider } from "./api";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -33,9 +33,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <ApiProvider>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </ApiProvider>
       </body>
     </html>
   );

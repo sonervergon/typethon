@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
 
-from api.schemas import UserCreate, UserResponse, UserUpdate, LoginRequest, Token
+from api.schemas import UserCreate, UserResponse, UserUpdate, LoginRequest, Token, HelloResponse
 from services.user_service import UserService, get_user_service
 from services.auth_service import AuthService, get_auth_service
 
@@ -42,6 +42,6 @@ def login(
     
     return {"access_token": access_token, "token_type": "bearer"}
 
-@router.get("/hello")
-def hello():
-    return {"message": "Hello, World!"}
+@router.get("/hello", response_model=HelloResponse)
+def hello() -> HelloResponse:
+    return HelloResponse(message="Hello, World!")

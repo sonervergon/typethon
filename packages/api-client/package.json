@@ -15,6 +15,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.8.0",
   "dependencies": {
+    "@tanstack/react-query": "^5.72.2",
     "openapi-fetch": "^0.13.5",
     "openapi-react-query": "^0.3.1"
   },

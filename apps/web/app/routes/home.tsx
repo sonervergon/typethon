@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
+import { api } from "~/api";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +10,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  const { data } = api.useQuery("get", "/api/v1/hello");
+  console.log(data);
+  return (
+    <>
+      <div>{data?.message}</div>
+      <Welcome />
+    </>
+  );
 }
