@@ -1,0 +1,19 @@
+{
+  "name": "api-monorepo",
+  "version": "1.0.0",
+  "description": "PNPM Monorepo containing Python API and related services",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init-python": "./init-python-envs.sh",
+    "dev:core": "pnpm --filter @api-monorepo/core dev",
+    "test:core": "pnpm --filter @api-monorepo/core test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=8"
+  }
+}

@@ -1,6 +1,6 @@
 # Development Guide
 
-This document contains detailed technical information for developers working on this project. For general information, project overview, and getting started instructions, please refer to the [README.md](./README.md).
+This document contains detailed technical information for developers working on the Core API service. For general information, project overview, and getting started instructions, please refer to the [README.md](./README.md).
 
 ## Table of Contents
 
@@ -371,16 +371,16 @@ To deploy on AWS ECS:
 1. Create an ECR repository:
 
    ```bash
-   aws ecr create-repository --repository-name ai-backend-service
+   aws ecr create-repository --repository-name core-api-service
    ```
 
 2. Build and push the Docker image:
 
    ```bash
    aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-   docker build -t ai-backend-service .
-   docker tag ai-backend-service:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ai-backend-service:latest
-   docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ai-backend-service:latest
+   docker build -t core-api-service .
+   docker tag core-api-service:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/core-api-service:latest
+   docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/core-api-service:latest
    ```
 
 3. Create an ECS task definition, cluster, and service using the AWS console or CLI
@@ -391,19 +391,19 @@ To deploy on AWS ECS:
 2. Tag it for Google Container Registry:
 
    ```bash
-   docker tag ai-backend-service gcr.io/[PROJECT_ID]/ai-backend-service
+   docker tag core-api-service gcr.io/[PROJECT_ID]/core-api-service
    ```
 
 3. Push to Container Registry:
 
    ```bash
-   docker push gcr.io/[PROJECT_ID]/ai-backend-service
+   docker push gcr.io/[PROJECT_ID]/core-api-service
    ```
 
 4. Deploy to Cloud Run:
    ```bash
-   gcloud run deploy ai-backend-service \
-     --image gcr.io/[PROJECT_ID]/ai-backend-service \
+   gcloud run deploy core-api-service \
+     --image gcr.io/[PROJECT_ID]/core-api-service \
      --platform managed \
      --allow-unauthenticated
    ```
