@@ -1,6 +1,6 @@
 # API Monorepo
 
-A pnpm monorepo containing a Python backend service and related applications.
+A pnpm monorepo with Turborepo containing a Python backend service and related applications.
 
 ## Monorepo Structure
 
@@ -10,7 +10,8 @@ api-monorepo/
 │   └── core/             # Core Python API service
 ├── packages/             # Shared packages (libraries, components, etc.)
 ├── package.json          # Root package configuration
-└── pnpm-workspace.yaml   # Workspace configuration
+├── pnpm-workspace.yaml   # Workspace configuration
+└── turbo.json            # Turborepo configuration
 ```
 
 ## Getting Started
@@ -35,6 +36,16 @@ pnpm install
 pnpm init-python
 ```
 
+### Development
+
+Start all services in development mode:
+
+```bash
+pnpm dev
+```
+
+This will start all the services in parallel using Turborepo.
+
 ## Available Services
 
 ### Core API Service
@@ -45,14 +56,17 @@ The Core API service is a Python backend service using FastAPI with a layered ar
 - **Documentation**:
   - [Core API README](./apps/core/README.md)
   - [Development Guide](./apps/core/DEVELOPMENT.md)
-- **Running**: `pnpm dev:core`
+- **Running**: Available through the root `pnpm dev` command or individually with `pnpm dev:core`
 - **Testing**: `pnpm test:core`
 
 ## Monorepo Scripts
 
+- `pnpm dev` - Run all services in development mode using Turborepo
 - `pnpm init-python` - Initialize Python environments
-- `pnpm dev:core` - Run the core API in development mode
+- `pnpm dev:core` - Run the core API in development mode individually
 - `pnpm test:core` - Run tests for the core API
+- `pnpm build` - Build all packages using Turborepo
+- `pnpm lint` - Lint all packages using Turborepo
 
 ## Adding New Services
 
@@ -63,8 +77,10 @@ The Core API service is a Python backend service using FastAPI with a layered ar
 
 2. Add the service to the workspace by updating its package.json
 
-3. Add scripts to the root package.json for convenience
+3. Add the service to the Turborepo pipeline in `turbo.json` if needed
+
+4. The service will be automatically included in the root dev command
 
 ## Contributing
 
-Please see [DEVELOPMENT.md](./DEVELOPMENT.md) for contribution guidelines.
+Please see [DEVELOPMENT.md](./apps/core/DEVELOPMENT.md) for contribution guidelines.
