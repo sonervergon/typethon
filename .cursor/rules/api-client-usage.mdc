@@ -1,0 +1,88 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor Rules for API Client Usage
+
+## API Call Organization
+
+1. **Client Import**
+   - Import the API client from the centralized location
+   ```typescript
+   import { api } from "~/api";
+   ```
+
+2. **Query Structure**
+   - Use the appropriate method for the HTTP verb
+   - First parameter is the HTTP method, second is the endpoint path
+   ```typescript
+   // GET request
+   const { data } = api.useQuery("get", "/api/v1/resource");
+   
+   // POST request
+   const mutation = api.useMutation("post", "/api/v1/resource");
+   mutation.mutate(payload);
+   ```
+
+3. **Endpoint Patterns**
+   - All endpoints should use `/api/v1/` prefix
+   - Use resource-focused naming: `/api/v1/users`, `/api/v1/products`
+
+## Data Handling
+
+1. **Type Safety**
+   - Define response and request types for all API calls
+   ```typescript
+   type HelloResponse = { message: string };
+   const { data } = api.useQuery<HelloResponse>("get", "/api/v1/hello");
+   ```
+
+2. **Loading States**
+   - Always handle loading states in UI components
+   ```typescript
+   const { data, isLoading, error } = api.useQuery("get", "/api/v1/resource");
+   if (isLoading) return <LoadingSpinner />;
+   if (error) return <ErrorMessage error={error} />;
+   ```
+
+3. **Error Handling**
+   - Check for errors in all API calls
+   - Use appropriate error boundaries
+
+## Query Options
+
+1. **Caching and Refetching**
+   - Configure cache time and stale time based on data volatility
+   ```typescript
+   const { data } = api.useQuery("get", "/api/v1/resource", {
+     staleTime: 60000, // 1 minute
+     cacheTime: 300000, // 5 minutes
+   });
+   ```
+
+2. **Query Dependencies**
+   - Use the enabled option for dependent queries
+   ```typescript
+   const { data: user } = api.useQuery("get", "/api/v1/user");
+   const { data: userPosts } = api.useQuery("get", `/api/v1/posts?userId=${user?.id}`, {
+     enabled: !!user?.id,
+   });
+   ```
+
+## Component Integration
+
+1. **Data Fetching Location**
+   - Fetch data at the route component level when possible
+   - Pass data down to child components as props
+
+2. **Mutation Patterns**
+   - Handle optimistic updates when appropriate
+   - Invalidate related queries after successful mutations
+   ```typescript
+   const mutation = api.useMutation("post", "/api/v1/resource", {
+     onSuccess: () => {
+       api.queryClient.invalidateQueries(["get", "/api/v1/resource"]);
+     },
+   });
+   ```
