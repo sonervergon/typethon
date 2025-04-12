@@ -1,13 +1,14 @@
 # API Monorepo
 
-A pnpm monorepo with Turborepo containing a Python backend service and related applications.
+A pnpm monorepo with Turborepo containing a Python backend service and a Vite web application.
 
 ## Monorepo Structure
 
 ```
 api-monorepo/
 ├── apps/                 # Application packages
-│   └── core/             # Core Python API service
+│   ├── core/             # Core Python API service
+│   └── web/              # Vite web application
 ├── packages/             # Shared packages (libraries, components, etc.)
 ├── package.json          # Root package configuration
 ├── pnpm-workspace.yaml   # Workspace configuration
@@ -52,19 +53,14 @@ This will start all the services in parallel using Turborepo.
 
 The Core API service is a Python backend service using FastAPI with a layered architecture.
 
-- **Location**: `./apps/core`
-- **Documentation**:
-  - [Core API README](./apps/core/README.md)
-  - [Development Guide](./apps/core/DEVELOPMENT.md)
-- **Running**: Available through the root `pnpm dev` command or individually with `pnpm dev:core`
-- **Testing**: `pnpm test:core`
+### Web Application
+
+A modern Vite-powered web application that connects to the Core API.
 
 ## Monorepo Scripts
 
 - `pnpm dev` - Run all services in development mode using Turborepo
 - `pnpm init-python` - Initialize Python environments
-- `pnpm dev:core` - Run the core API in development mode individually
-- `pnpm test:core` - Run tests for the core API
 - `pnpm build` - Build all packages using Turborepo
 - `pnpm lint` - Lint all packages using Turborepo
 
