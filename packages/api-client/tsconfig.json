@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "moduleDetection": "force",
+    "module": "Preserve",
+    "target": "ES2022",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -41,3 +41,7 @@ def login(
     access_token = f"dummy_token_for_{user['username']}"
     
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.get("/hello")
+def hello():
+    return {"message": "Hello, World!"}

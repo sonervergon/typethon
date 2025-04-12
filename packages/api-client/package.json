@@ -1,0 +1,27 @@
+{
+  "name": "@api-monorepo/api-client",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsx watch --include \"../../apps/core/api/*\" ./src/generate.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0",
+  "dependencies": {
+    "openapi-fetch": "^0.13.5",
+    "openapi-react-query": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "openapi-typescript": "^7.6.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
