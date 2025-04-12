@@ -1,4 +1,4 @@
-# API Monorepo
+# Monorepo boilerplate
 
 A pnpm monorepo with Turborepo containing a Python backend service and a Vite web application.
 
