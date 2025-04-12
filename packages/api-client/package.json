@@ -21,8 +21,8 @@
     "openapi-react-query": "^0.3.1"
   },
   "devDependencies": {
-    "@typethon/typescript": "workspace:*",
     "@types/node": "^20",
+    "@typethon/typescript": "workspace:*",
     "openapi-typescript": "^7.6.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"

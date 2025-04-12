@@ -9,7 +9,9 @@
     "test": "turbo test",
     "typecheck": "turbo typecheck",
     "format": "biome format --write .",
-    "lint": "biome lint --write ."
+    "lint": "biome lint --write . && pnpm lint:sherif",
+    "lint:sherif": "pnpm dlx sherif@latest",
+    "lint:sherif:fix": "pnpm dlx sherif@latest --fix"
   },
   "keywords": [],
   "author": "",
