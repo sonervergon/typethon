@@ -1,4 +1,5 @@
 {
+  "extends": "@typethon/typescript/base.json",
   "compilerOptions": {
     "noUncheckedIndexedAccess": true,
     "moduleDetection": "force",

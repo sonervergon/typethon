@@ -38,7 +38,11 @@ export const generateApiClient = async () => {
 
     console.log("API client generated successfully");
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    if (error instanceof Error) {
+      console.error(`Error: ${error.message}`);
+    } else {
+      console.error(`Error: ${error}`);
+    }
   }
 };
 

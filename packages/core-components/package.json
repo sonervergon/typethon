@@ -1,0 +1,17 @@
+{
+  "name": "@typethon/core-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0",
+  "devDependencies": {
+    "@typethon/typescript": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}

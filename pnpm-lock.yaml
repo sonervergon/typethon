@@ -53,6 +53,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.1
         version: 19.1.2(@types/react@19.1.1)
+      '@typethon/typescript':
+        specifier: workspace:*
+        version: link:../../packages/typescript
       react-router-devtools:
         specifier: ^1.1.0
         version: 1.1.10(@types/react-dom@19.1.2(@types/react@19.1.1))(@types/react@19.1.1)(react-dom@19.1.0(react@19.1.0))(react-router@7.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(vite@5.4.18(@types/node@20.17.30)(lightningcss@1.29.2))
@@ -84,6 +87,9 @@ importers:
       '@types/node':
         specifier: ^20
         version: 20.17.30
+      '@typethon/typescript':
+        specifier: workspace:*
+        version: link:../typescript
       openapi-typescript:
         specifier: ^7.6.1
         version: 7.6.1(typescript@5.8.3)
@@ -93,6 +99,17 @@ importers:
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+
+  packages/core-components:
+    devDependencies:
+      '@typethon/typescript':
+        specifier: workspace:*
+        version: link:../typescript
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
+
+  packages/typescript: {}
 
 packages:
 

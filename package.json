@@ -6,7 +6,8 @@
   "scripts": {
     "setup-env": "turbo setup-env",
     "dev": "turbo dev",
-    "test": "turbo test"
+    "test": "turbo test",
+    "typecheck": "turbo typecheck"
   },
   "keywords": [],
   "author": "",

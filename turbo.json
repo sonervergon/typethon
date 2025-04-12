@@ -16,6 +16,9 @@
     },
     "setup-env": {
       "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
     }
   }
 }
