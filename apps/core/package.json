@@ -4,9 +4,9 @@
   "description": "Python API Core Service",
   "private": true,
   "scripts": {
-    "start": "python main.py",
-    "test": "pytest",
-    "dev": "./venv/bin/python main.py"
+    "start": "./venv/bin/python main.py",
+    "test": "./venv/bin/pytest",
+    "dev": "./run-dev.sh"
   },
   "keywords": [
     "python",
