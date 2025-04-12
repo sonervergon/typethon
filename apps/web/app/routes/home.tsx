@@ -11,10 +11,26 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   const { data } = api.useQuery("get", "/api/v1/hello");
-  console.log(data);
+  const { mutate } = api.useMutation("post", "/api/v1/login/");
   return (
     <>
-      <div>{data?.message}</div>
+      <div>
+        {data?.message}
+        <input type="text" />
+        <input type="password" />
+        <button
+          onClick={() =>
+            mutate({
+              body: {
+                username: "test",
+                password: "test",
+              },
+            })
+          }
+        >
+          Login
+        </button>
+      </div>
       <Welcome />
     </>
   );
