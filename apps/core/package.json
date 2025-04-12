@@ -8,11 +8,7 @@
     "dev": "./bin/dev.sh",
     "setup-env": "./bin/setup.sh"
   },
-  "keywords": [
-    "python",
-    "api",
-    "fastapi"
-  ],
+  "keywords": ["python", "api", "fastapi"],
   "author": "",
   "license": "ISC"
 }
