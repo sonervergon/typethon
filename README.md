@@ -20,8 +20,8 @@ api-monorepo/
 
 ### Prerequisites
 
-- Node.js 16+
-- pnpm 8+
+- Node.js 20+
+- pnpm 10+
 - Python 3.9+ (for Python services)
 
 ### Installation
