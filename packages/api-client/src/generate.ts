@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { exec } from "node:child_process";
 
 const checkApiStatus = async () => {
   const maxRetries = 5;

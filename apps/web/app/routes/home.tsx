@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 import { api } from "~/api";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "New React Router App" },
     { name: "description", content: "Welcome to React Router!" },
@@ -19,6 +19,7 @@ export default function Home() {
         <input type="text" />
         <input type="password" />
         <button
+          type="button"
           onClick={() =>
             mutate({
               body: {

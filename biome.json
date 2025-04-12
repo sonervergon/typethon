@@ -11,7 +11,8 @@
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "ignore": ["apps/web/.react-router", "apps/core"]
   },
   "organizeImports": {
     "enabled": true
@@ -20,7 +21,8 @@
     "enabled": true,
     "rules": {
       "recommended": true
-    }
+    },
+    "ignore": ["**/generated.ts", "apps/web/.react-router", "apps/core"]
   },
   "javascript": {
     "formatter": {
