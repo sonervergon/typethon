@@ -108,7 +108,3 @@ Once setup is complete, you'll need to select the Python interpreter:
 2. Add the service to the workspace by updating its package.json
 
 3. Add the service to the Turborepo pipeline in `turbo.json` if needed
-
-## Contributing
-
-Please see [DEVELOPMENT.md](./apps/core/DEVELOPMENT.md) for contribution guidelines.
