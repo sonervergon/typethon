@@ -13,8 +13,6 @@ A Python backend service using a layered architecture with FastAPI.
 - [API Endpoints](#api-endpoints)
 - [Deployment](#deployment)
 
-For detailed technical information and advanced development topics, see [DEVELOPMENT.md](./DEVELOPMENT.md).
-
 ## Overview
 
 This service provides the core API functionality for the monorepo. It follows a clean, layered architecture to promote maintainability and separation of concerns. With this architecture baked in, you can focus on implementing your business logic rather than setting up infrastructure.
@@ -242,20 +240,3 @@ Explore the full API at:
 
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
-
-## Deployment
-
-### Docker
-
-Build and run the Docker container:
-
-```bash
-docker build -t core-api-service .
-docker run -p 8080:8080 core-api-service
-```
-
-The API will be available at http://localhost:8080
-
-### Cloud Deployment
-
-For detailed deployment instructions to cloud platforms, refer to the deployment section in the DEVELOPMENT.md file.
