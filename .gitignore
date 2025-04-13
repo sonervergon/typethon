@@ -5,6 +5,7 @@ node_modules
 __pycache__/
 *.py[cod]
 *$py.class
+.mypy_cache
 
 # Distribution / packaging
 dist/
@@ -29,7 +30,6 @@ htmlcov/
 
 # IDE
 .idea/
-.vscode/
 
 # Logs
 *.log 

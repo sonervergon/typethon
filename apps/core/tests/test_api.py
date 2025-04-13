@@ -16,6 +16,7 @@ engine = create_engine(
 )
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+
 # Override the get_db dependency
 def override_get_db():
     db = TestingSessionLocal()
@@ -24,9 +25,11 @@ def override_get_db():
     finally:
         db.close()
 
+
 app.dependency_overrides[create_session] = override_get_db
 
 client = TestClient(app)
+
 
 @pytest.fixture(scope="function")
 def test_db():
@@ -36,6 +39,7 @@ def test_db():
     # Drop the database tables
     Base.metadata.drop_all(bind=engine)
 
+
 def test_create_user(test_db):
     response = client.post(
         "/api/v1/users/",
@@ -43,7 +47,7 @@ def test_create_user(test_db):
             "username": "testuser",
             "email": "test@example.com",
             "full_name": "Test User",
-            "password": "password123"
+            "password": "password123",
         },
     )
     assert response.status_code == 201
@@ -54,6 +58,7 @@ def test_create_user(test_db):
     assert "id" in data
     assert "password" not in data
 
+
 def test_get_user(test_db):
     # First create a user
     response = client.post(
@@ -62,11 +67,11 @@ def test_get_user(test_db):
             "username": "testuser",
             "email": "test@example.com",
             "full_name": "Test User",
-            "password": "password123"
+            "password": "password123",
         },
     )
     user_id = response.json()["id"]
-    
+
     # Now get the user
     response = client.get(f"/api/v1/users/{user_id}")
     assert response.status_code == 200

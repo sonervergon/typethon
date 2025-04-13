@@ -7,7 +7,16 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": [
+      ".mypy_cache/**",
+      "**/.mypy_cache/**",
+      "node_modules",
+      "**/node_modules/**",
+      ".git",
+      ".venv",
+      "**/venv/**",
+      "**/__pycache__/**"
+    ]
   },
   "formatter": {
     "enabled": true,

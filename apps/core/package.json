@@ -6,9 +6,17 @@
   "scripts": {
     "test": "./bin/test.sh",
     "dev": "./bin/dev.sh",
-    "setup-env": "./bin/setup.sh"
+    "setup-env": "./bin/setup.sh",
+    "lint": "./bin/lint.sh",
+    "lint:fix": "./bin/lint-fix.sh",
+    "format": "./bin/format.sh",
+    "typecheck": "./bin/typecheck.sh"
   },
-  "keywords": ["python", "api", "fastapi"],
+  "keywords": [
+    "python",
+    "api",
+    "fastapi"
+  ],
   "author": "",
   "license": "ISC"
 }

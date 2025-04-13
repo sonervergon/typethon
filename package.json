@@ -7,9 +7,12 @@
     "setup-env": "turbo setup-env",
     "dev": "turbo dev",
     "test": "turbo test",
+    "build": "turbo build",
     "typecheck": "turbo typecheck",
-    "format": "biome format --write .",
-    "lint": "biome lint --write . && pnpm lint:sherif",
+    "lint": "concurrently \"turbo lint\" \"pnpm lint:ts\" \"pnpm lint:sherif\"",
+    "format": "concurrently \"turbo format\" \"pnpm format:ts\" ",
+    "format:ts": "biome format . --write .",
+    "lint:ts": "biome lint .",
     "lint:sherif": "pnpm dlx sherif@latest",
     "lint:sherif:fix": "pnpm dlx sherif@latest --fix"
   },
@@ -17,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": ">=22",
+    "node": ">=20",
     "pnpm": ">=10"
   },
   "devDependencies": {

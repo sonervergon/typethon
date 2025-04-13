@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.endpoints import router as api_router
-from core.config import API_PREFIX, PROJECT_NAME, DEBUG
-from lib.database import engine, Base
+from core.config import API_PREFIX, DEBUG, PROJECT_NAME
+from lib.database import Base, engine
 
 # Create tables
 Base.metadata.create_all(bind=engine)
+
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -32,8 +33,10 @@ def create_app() -> FastAPI:
 
     return app
 
+
 app = create_app()
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

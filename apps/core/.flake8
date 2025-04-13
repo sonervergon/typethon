@@ -1,0 +1,5 @@
+[flake8]
+# Redirect to pyproject.toml settings
+max-line-length = 88
+extend-ignore = E203,E501
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,.venv,venv,.mypy_cache,*.pyi

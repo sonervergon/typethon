@@ -11,4 +11,4 @@ export PYTHONPATH="$APP_DIR"
 echo "Running tests with PYTHONPATH=$PYTHONPATH"
 
 # Run pytest with Python -m to ensure PYTHONPATH is used
-./venv/bin/python -m pytest "$@" 
+./.venv/bin/python -m pytest "$@" 
