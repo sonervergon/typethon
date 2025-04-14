@@ -6,10 +6,14 @@ cd "$APP_DIR"
 
 echo "Setting up Core API environment..."
 
+# Check Python version
+PYTHON_VERSION=$(python --version 2>&1)
+echo "Using Python: $PYTHON_VERSION"
+
 # Remove existing venv if present
-if [ -d "venv" ]; then
+if [ -d ".venv" ]; then
   echo "Removing existing venv directory..."
-  rm -rf venv
+  rm -rf .venv
 fi
 
 # Create a new .venv directory

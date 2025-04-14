@@ -24,6 +24,8 @@ pnpm install
 pnpm setup-env
 ```
 
+`setup-env` will ensure that you have python installed and setup the apps/core for you.
+
 ### Development
 
 Start all services in development mode:
