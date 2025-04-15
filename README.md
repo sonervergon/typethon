@@ -20,11 +20,23 @@ Typethon is a Typescript pnpm monorepo with Turborepo containing a Python backen
 Install dependencies and set up the project:
 
 ```bash
+# Install pnpm
+npm i -g pnpm
+
 pnpm install
+
+# Install pyenv (macOS)
+brew install pyenv
+
+# Install Python 3.9
+pyenv install 3.9.18
+
+# Set as your active Python version
+pyenv global 3.9.18
+
+# Setup local environment
 pnpm setup-env
 ```
-
-`setup-env` will ensure that you have python installed and setup the apps/core for you.
 
 ### Development
 
