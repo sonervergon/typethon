@@ -1,9 +1,9 @@
+from api.endpoints import router as api_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from api.endpoints import router as api_router
-from core.config import API_PREFIX, DEBUG, PROJECT_NAME
 from lib.database import Base, engine
+
+from core.config import API_PREFIX, DEBUG, PROJECT_NAME
 
 # Create tables
 Base.metadata.create_all(bind=engine)

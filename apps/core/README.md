@@ -64,7 +64,7 @@ Each layer has a specific responsibility:
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.13+ with uv (https://docs.astral.sh/uv/)
 - pnpm (for monorepo management)
 
 ### Installation
@@ -90,21 +90,6 @@ pnpm dev
 ```
 
 The API will be available at http://localhost:8000
-
-### Python Version Management
-
-This project requires Python 3.9+. We recommend using pyenv to manage Python versions:
-
-```bash
-# Install pyenv (macOS)
-brew install pyenv
-
-# Install Python 3.9
-pyenv install 3.9.18
-
-# Set as your active Python version
-pyenv global 3.9.18
-```
 
 ## Infrastructure Libraries
 
@@ -217,15 +202,6 @@ Run the test suite with pytest:
 ```bash
 # From monorepo root
 pnpm --filter @typethon/core test
-
-# Or directly
-python -m pytest
-
-# Run tests with verbose output
-python -m pytest -v
-
-# Run a specific test file
-python -m pytest tests/test_api.py
 ```
 
 Tests use an in-memory SQLite database and are isolated from production data.

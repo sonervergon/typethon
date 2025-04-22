@@ -71,9 +71,9 @@ def test_api_layer_architecture():
         error_msg_template="File {file} directly imports from {layer} layer: {imports}",
     )
 
-    assert (
-        not violations
-    ), "API layer should not import directly from operations or models layers"
+    assert not violations, (
+        "API layer should not import directly from operations or models layers"
+    )
 
 
 def test_service_layer_architecture():
@@ -87,9 +87,9 @@ def test_service_layer_architecture():
         error_msg_template="File {file} directly imports from {layer} layer: {imports}",
     )
 
-    assert (
-        not violations
-    ), "Service layer should not import directly from models layer (use operations layer instead)"
+    assert not violations, (
+        "Service layer should not import directly from models layer (use operations layer instead)"
+    )
 
 
 def test_all_architectural_boundaries():

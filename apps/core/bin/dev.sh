@@ -8,4 +8,4 @@ cd "$APP_DIR"
 export PYTHONPATH=$APP_DIR
 
 # Run the application
-./.venv/bin/python main.py 
+uv run main.py 

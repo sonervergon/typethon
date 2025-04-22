@@ -1,25 +1,13 @@
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/apps/core/.venv/bin/python",
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.extraPaths": ["${workspaceFolder}/apps/core"],
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     }
-  },
-  "black-formatter.args": [
-    "--config",
-    "${workspaceFolder}/apps/core/pyproject.toml"
-  ],
-  "isort.args": [
-    "--settings-path",
-    "${workspaceFolder}/apps/core/pyproject.toml"
-  ],
-  "flake8.args": ["--config=${workspaceFolder}/apps/core/.flake8"]
+  }
 }

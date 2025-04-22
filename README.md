@@ -13,7 +13,7 @@ Typethon is a Typescript pnpm monorepo with Turborepo containing a Python backen
 
 - Node.js 22+
 - pnpm 10+
-- Python 3.9+ (for Python services)
+- Python 3.13+ (for Python services)
 
 ### Installation & Setup
 
@@ -25,14 +25,8 @@ npm i -g pnpm
 
 pnpm install
 
-# Install pyenv (macOS)
-brew install pyenv
-
-# Install Python 3.9
-pyenv install 3.9.18
-
-# Set as your active Python version
-pyenv global 3.9.18
+# Install uv (https://docs.astral.sh/uv/)
+brew install uv
 
 # Setup local environment
 pnpm setup-env
@@ -100,8 +94,7 @@ For the best Python development experience in VS Code or Cursor, install these e
 
 - **Biome**: `biomejs.biome` - Official Biome extension for formatting and linting
 - **Python**: `ms-python.python` - Main Python extension
-- **Black Formatter**: `ms-python.black-formatter` - Code formatting
-- **Flake8**: `ms-python.flake8` - Linting
+- **Ruff**: `charliermarsh.ruff` - Code formatting and linting for Python
 - **Mypy Type Checker**: `ms-python.mypy-type-checker` - Type checking
 
 ### Select Python Interpreter

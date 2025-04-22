@@ -10,5 +10,5 @@ export PYTHONPATH="$APP_DIR"
 # Debug output to show PATH and PYTHONPATH
 echo "Running tests with PYTHONPATH=$PYTHONPATH"
 
-# Run pytest with Python -m to ensure PYTHONPATH is used
-./.venv/bin/python -m pytest "$@" 
+# Run pytest with uv instead of direct Python call
+uv run pytest "$@" 
