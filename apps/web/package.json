@@ -9,13 +9,15 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@ai-sdk/react": "^1.2.9",
     "@react-router/node": "^7.5.0",
     "@react-router/serve": "^7.5.0",
     "@typethon/api-client": "workspace:*",
     "isbot": "^5.1.17",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.5.0"
+    "react-router": "^7.5.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@react-router/dev": "^7.5.0",

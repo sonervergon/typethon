@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(".env.local")
 
 # Project settings
 PROJECT_NAME = os.getenv("PROJECT_NAME", "AI-Driven Backend Service")
@@ -31,6 +31,9 @@ SMTP_USERNAME = os.getenv("SMTP_USERNAME", "")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
 EMAIL_FROM_ADDRESS = os.getenv("EMAIL_FROM_ADDRESS", "noreply@example.com")
 EMAIL_TEMPLATES_DIR = os.getenv("EMAIL_TEMPLATES_DIR", "templates/emails")
+
+# OpenAI settings
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 
 # File Upload
 UPLOAD_DIR = os.getenv("UPLOAD_DIR", "uploads")
